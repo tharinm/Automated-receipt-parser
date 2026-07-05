@@ -61,7 +61,7 @@ export function SubscriptionCard({ subscription }: { subscription: Subscription 
           {subscription.created_at && (
             <p className="text-xs text-zinc-500 mt-0.5 flex items-center gap-1.5">
               <CalendarDays className="w-3 h-3" />
-              {new Date(subscription.created_at).toLocaleDateString(undefined, { 
+              {new Date(subscription.created_at).toLocaleDateString('en-US', { 
                 month: 'short', 
                 day: 'numeric', 
                 year: 'numeric' 
