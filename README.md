@@ -13,7 +13,7 @@ This project seamlessly connects a beautiful React frontend with a powerful back
 ### 1. Data Entry (The Frontend)
 You start by clicking the **"Add Subscription"** button on the dashboard. A sleek modal opens, providing a text area where you can paste absolutely any unstructured text—like a forwarded email from Spotify or a messy PDF invoice from Adobe.
 
-![AI Receipt Processor Modal](./public/modal.png)
+![AI Receipt Processor Modal](./screenshots/modal.png)
 *(Screenshot: The AI Data Entry Modal)*
 
 ### 2. The AI Engine (n8n + Google Gemini)
@@ -23,7 +23,7 @@ This triggers an automated workflow:
 * **Transform:** A `Basic LLM Chain` node securely passes the text to **Google Gemini**. Gemini is instructed via a `Structured Output Parser` to read the text and extract specific data points: *Vendor Name, Billed Amount, Currency, and Is Trial*.
 * **Load:** Once Gemini formats the data perfectly into JSON, a Supabase node inserts the new structured record directly into the database.
 
-![n8n AI Workflow](./public/n8n-workflow.png)
+![n8n AI Workflow](./screenshots/n8n-workflow.png)
 *(Screenshot: The n8n visual programming canvas showing the AI extraction pipeline)*
 
 ### 3. Database Storage (Supabase)
@@ -32,7 +32,7 @@ The data is securely stored in a **Supabase PostgreSQL database**. The table is 
 ### 4. Real-Time Dashboard
 Back on the frontend, the Next.js application uses `force-dynamic` rendering. As soon as the AI pipeline finishes its job and saves the data, the dashboard automatically refreshes. Your new subscription appears beautifully formatted as a full-width row, complete with the timestamp and active status.
 
-![SubTrack Dashboard](./public/dashboard.png)
+![SubTrack Dashboard](./screenshots/dashboard.png)
 *(Screenshot: The SubTrack Dashboard displaying the newly processed subscriptions)*
 
 ---
