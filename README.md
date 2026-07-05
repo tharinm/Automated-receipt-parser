@@ -13,8 +13,8 @@ This project seamlessly connects a beautiful React frontend with a powerful back
 ### 1. Data Entry (The Frontend)
 You start by clicking the **"Add Subscription"** button on the dashboard. A sleek modal opens, providing a text area where you can paste absolutely any unstructured text—like a forwarded email from Spotify or a messy PDF invoice from Adobe.
 
-![AI Receipt Processor Modal](./screenshots/modal.png)
-*(Screenshot: The AI Data Entry Modal)*
+<img width="1898" height="927" alt="image" src="https://github.com/user-attachments/assets/df4162ee-246d-4ce0-b6fa-7c2867ca7dba" />
+
 
 ### 2. The AI Engine (n8n + Google Gemini)
 When you click **"Process with AI"**, the frontend sends your raw text to an **n8n Webhook** running in the background. 
@@ -23,7 +23,7 @@ This triggers an automated workflow:
 * **Transform:** A `Basic LLM Chain` node securely passes the text to **Google Gemini**. Gemini is instructed via a `Structured Output Parser` to read the text and extract specific data points: *Vendor Name, Billed Amount, Currency, and Is Trial*.
 * **Load:** Once Gemini formats the data perfectly into JSON, a Supabase node inserts the new structured record directly into the database.
 
-![n8n AI Workflow](./screenshots/n8n-workflow.png)
+<img width="1062" height="607" alt="image" src="https://github.com/user-attachments/assets/85938062-1b3c-4eff-b02e-f4c6288076ee" />
 *(Screenshot: The n8n visual programming canvas showing the AI extraction pipeline)*
 
 ### 3. Database Storage (Supabase)
@@ -32,7 +32,7 @@ The data is securely stored in a **Supabase PostgreSQL database**. The table is 
 ### 4. Real-Time Dashboard
 Back on the frontend, the Next.js application uses `force-dynamic` rendering. As soon as the AI pipeline finishes its job and saves the data, the dashboard automatically refreshes. Your new subscription appears beautifully formatted as a full-width row, complete with the timestamp and active status.
 
-![SubTrack Dashboard](./screenshots/dashboard.png)
+<img width="1901" height="947" alt="image" src="https://github.com/user-attachments/assets/a327bb5c-7a04-44f0-a2cd-97d8f2e773a5" />
 *(Screenshot: The SubTrack Dashboard displaying the newly processed subscriptions)*
 
 ---
