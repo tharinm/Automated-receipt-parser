@@ -12,7 +12,7 @@ export function DashboardGrid({ subscriptions }: { subscriptions: Subscription[]
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    <div className="flex flex-col gap-3">
       {subscriptions.map((sub) => (
         <SubscriptionCard key={sub.id} subscription={sub} />
       ))}
@@ -22,9 +22,9 @@ export function DashboardGrid({ subscriptions }: { subscriptions: Subscription[]
 
 export function DashboardSkeleton() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8">
-      {[...Array(8)].map((_, i) => (
-        <div key={i} className="h-48 rounded-2xl bg-white/5 animate-pulse border border-white/5" />
+    <div className="flex flex-col gap-3 mt-8">
+      {[...Array(5)].map((_, i) => (
+        <div key={i} className="h-20 rounded-2xl bg-white/5 animate-pulse border border-white/5" />
       ))}
     </div>
   );

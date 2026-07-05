@@ -16,6 +16,8 @@ export async function fetchSubscriptions(): Promise<Subscription[]> {
       .select('*')
       .order('created_at', { ascending: false });
 
+    console.log("Supabase raw response:", { data, error });
+
     if (error) {
       console.error('Error fetching subscriptions:', error);
       return getMockSubscriptions();

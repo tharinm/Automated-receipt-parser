@@ -3,9 +3,10 @@ import { fetchSubscriptions } from "@/actions/fetchSubscriptions";
 import { SummaryWidget } from "@/components/SummaryWidget";
 import { DashboardGrid, DashboardSkeleton } from "@/components/DashboardGrid";
 import { SmartNavbar } from "@/components/SmartNavbar";
+import { AddSubscription } from "@/components/AddSubscription";
 
-// Set revalidate time if needed, or leave dynamic
-export const revalidate = 60;
+// Force dynamic rendering to ensure fresh DB data is always fetched
+export const dynamic = 'force-dynamic';
 
 export default async function DashboardPage() {
   const subscriptions = await fetchSubscriptions();
@@ -34,6 +35,8 @@ export default async function DashboardPage() {
           <DashboardGrid subscriptions={subscriptions} />
         </Suspense>
       </main>
+
+      <AddSubscription />
     </div>
   );
 }
